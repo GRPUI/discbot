@@ -1,19 +1,14 @@
 import discord
-import urllib3  # библиотека для работы с URL
 import os  # библиотека для работы с ОС
-import random  # библиотека рандом
 import sqlite3  # библиотека для работы с БД SQL
 import time  # библиотека для работы со временем
-import schedule
-import threading
 from datetime import datetime, timedelta
-import asyncio
 from discord.ext import tasks
 
 db = sqlite3.connect('database.db', check_same_thread=False)  # подключение БД
 sql = db.cursor()
 
-TOKEN = 'OTUzNTI0NzQ5MTI3MDAwMTI0.YjF1Hw.igjoga7hT3t05NPPvT7IhaQ8w7w'
+TOKEN = os.environ.get('KEY')
 
 
 class MyClient(discord.Client):
